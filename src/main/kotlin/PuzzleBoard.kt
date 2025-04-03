@@ -4,20 +4,8 @@ import model.PuzzlePiece
 
 class PuzzleBoard(private val width: Int = 7, private val height: Int = 7) : Board {
     private val cellMap = mutableMapOf<Pair<Int, Int>, Cell>()
-
-    private val cells = initBoard(width, height)
     private val usedPieces = mutableListOf<PuzzlePiece>()
     private val puzzlePieces = mutableListOf<PuzzlePiece>()
-
-    private fun initBoard(width: Int, height: Int): List<Cell> = mutableListOf<Cell>().apply {
-        for (x in 0 until width) {
-            for (y in 0 until height) {
-                val cell = Cell(x, y, false)
-                add(cell)
-                cellMap[Pair(x, y)] = cell
-            }
-        }
-    }
 
     override fun addPlayablePuzzlePiece(puzzlePiece: PuzzlePiece): Boolean {
         puzzlePiece.initOriginalCells()
