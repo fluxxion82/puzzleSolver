@@ -17,6 +17,12 @@ class TestPieceOne(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrigin) {
         Cell(originX + 1, originY + 2, true) // 1, 2
     )
     override val printValue = "1 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = TestPieceOne(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -34,16 +40,22 @@ class TestPieceTwo(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrigin) {
         Cell(originX + 1, originY + 2, true) // 1, 2
     )
     override val printValue = "2 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = TestPieceTwo(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 fun main(args: Array<String>) {
     //testBoard()
     wikiPuzzle()
-    //pentominoes()
+    // pentominoes()
 
-    //squareFitPuzzle()
-    //trivialPuzzle()
-    //almostThere()
+    // squareFitPuzzle()
+    trivialPuzzle()
+    almostThere()
 }
 
 fun testBoard() {

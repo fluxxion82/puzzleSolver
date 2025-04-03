@@ -23,7 +23,14 @@ class PentominoePieceOne(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOri
         Cell(originX + 1, originY + 2, true), // 1, 2
         Cell(originX + 2, originY + 2, true) // 2, 2
     )
+
     override val printValue = "1 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = PentominoePieceOne(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -44,7 +51,14 @@ class PentominoePieceTwo(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOri
         Cell(originX + 3, originY, true), // 3, 0
         Cell(originX + 4, originY, true) // 4, 0
     )
+
     override val printValue = "2 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = PentominoePieceTwo(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -64,7 +78,14 @@ class PentominoePieceThree(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yO
         Cell(originX, originY + 3, true), // 0, 3
         Cell(originX + 1, originY + 3, true) // 1, 3
     )
+
     override val printValue = "3 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = PentominoePieceThree(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -84,7 +105,14 @@ class PentominoePieceFour(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOr
         Cell(originX, originY + 2, true), // 0, 2
         Cell(originX, originY + 3, true) // 0,3
     )
+
     override val printValue = "4 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = PentominoePieceFour(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -103,7 +131,14 @@ class PentominoePieceFive(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOr
         Cell(originX + 1, originY + 1, true), // 1, 1
         Cell(originX, originY + 2, true) // 0, 2
     )
+
     override val printValue = "5 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = PentominoePieceFive(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -122,7 +157,14 @@ class PentominoePieceSix(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOri
         Cell(originX + 2, originY + 1, true), // 2, 1
         Cell(originX, originY + 2, true) // 0, 2
     )
+
     override val printValue = "6 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = PentominoePieceSix(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -141,7 +183,14 @@ class PentominoePieceSeven(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yO
         Cell(originX + 1, originY + 1, true), // 1, 1
         Cell(originX + 2, originY + 1, true) // 2, 1
     )
+
     override val printValue = "7 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = PentominoePieceSeven(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -160,7 +209,14 @@ class PentominoePieceEight(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yO
         Cell(originX + 1, originY + 2, true), // 0, 1
         Cell(originX + 2, originY + 2, true) // 2, 2
     )
+
     override val printValue = "8 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = PentominoePieceEight(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -179,7 +235,14 @@ class PentominoePieceNine(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOr
         Cell(originX + 1, originY + 2, true), // 1, 2
         Cell(originX + 2, originY + 2, true) // 2, 2
     )
+
     override val printValue = "9 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = PentominoePieceNine(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -198,7 +261,14 @@ class PentominoePieceTen(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOri
         Cell(originX + 2, originY + 1, true), // 2, 1
         Cell(originX + 1, originY + 2, true) // 1, 2
     )
+
     override val printValue = "0 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = PentominoePieceTen(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -218,7 +288,14 @@ class PentominoePieceEleven(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, y
         Cell(originX + 1, originY + 2, true), // 1, 2
         Cell(originX + 1, originY + 3, true) // 1, 3
     )
+
     override val printValue = "! "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = PentominoePieceEleven(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -237,5 +314,12 @@ class PentominoePieceTwelve(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, y
         Cell(originX + 1, originY + 2, true), // 2, 1
         Cell(originX + 2, originY + 2, true) // 3, 2
     )
+
     override val printValue = "+ "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = PentominoePieceTwelve(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }

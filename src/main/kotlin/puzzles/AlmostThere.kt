@@ -28,6 +28,12 @@ open class PieceOne(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrigin) 
         Cell(originX + 1, originY + 3, true) // 1, 3
     )
     override val printValue = "1 "
+    
+    override fun copy(): PuzzlePiece {
+        val newPiece = PieceOne(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -41,6 +47,12 @@ open class PieceOne(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrigin) 
  */
 class PieceTwo(xOrigin: Int, yOrigin: Int) : PieceOne(xOrigin, yOrigin) {
     override val printValue = "2 "
+    
+    override fun copy(): PuzzlePiece {
+        val newPiece = PieceTwo(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -54,6 +66,12 @@ class PieceTwo(xOrigin: Int, yOrigin: Int) : PieceOne(xOrigin, yOrigin) {
  */
 class PieceThree(xOrigin: Int, yOrigin: Int) : PieceOne(xOrigin, yOrigin) {
     override val printValue = "3 "
+    
+    override fun copy(): PuzzlePiece {
+        val newPiece = PieceThree(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -77,6 +95,12 @@ class PieceFour(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrigin) {
         Cell(originX + 3, originY + 3, true) // 3, 3
     )
     override val printValue = "4 "
+    
+    override fun copy(): PuzzlePiece {
+        val newPiece = PieceFour(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -100,4 +124,10 @@ class PieceFive(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrigin) {
         Cell(originX + 2, originY + 3, true) // 2, 3
     )
     override val printValue = "5 "
+    
+    override fun copy(): PuzzlePiece {
+        val newPiece = PieceFive(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }

@@ -26,6 +26,12 @@ class SquareFitPieceOne(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrig
         Cell(originX + 3, originY + 2, true) // 3, 2
     )
     override val printValue = "1 "
+    
+    override fun copy(): PuzzlePiece {
+        val newPiece = SquareFitPieceOne(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -47,6 +53,12 @@ class SquareFitPieceTwo(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrig
         Cell(originX + 1, originY + 3, true) // 1, 3
     )
     override val printValue = "2 "
+    
+    override fun copy(): PuzzlePiece {
+        val newPiece = SquareFitPieceTwo(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -68,6 +80,12 @@ class SquareFitPieceThree(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOr
         Cell(originX + 1, originY + 2, true) // 1, 2
     )
     override val printValue = "3 "
+    
+    override fun copy(): PuzzlePiece {
+        val newPiece = SquareFitPieceThree(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -89,6 +107,12 @@ class SquareFitPieceFour(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOri
         Cell(originX + 1, originY + 2, true) // 1, 2
     )
     override val printValue = "4 "
+    
+    override fun copy(): PuzzlePiece {
+        val newPiece = SquareFitPieceFour(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -110,6 +134,12 @@ class SquareFitPieceFive(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOri
         Cell(originX + 1, originY + 2, true) // 1, 2
     )
     override val printValue = "5 "
+    
+    override fun copy(): PuzzlePiece {
+        val newPiece = SquareFitPieceFive(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -131,6 +161,12 @@ class SquareFitPieceSix(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrig
         Cell(originX + 2, originY + 2, true) // 2, 2
     )
     override val printValue = "6 "
+    
+    override fun copy(): PuzzlePiece {
+        val newPiece = SquareFitPieceSix(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -150,4 +186,10 @@ class SquareFitPieceSeven(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOr
         Cell(originX + 2, originY + 2, true) // 2, 2
     )
     override val printValue = "7 "
+    
+    override fun copy(): PuzzlePiece {
+        val newPiece = SquareFitPieceSeven(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }

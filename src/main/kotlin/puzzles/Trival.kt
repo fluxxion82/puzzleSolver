@@ -28,6 +28,12 @@ open class TrivalPieceOne(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOr
         Cell(originX + 1, originY + 4, true) // 1, 4
     )
     override val printValue = "1 "
+    
+    override fun copy(): PuzzlePiece {
+        val newPiece = TrivalPieceOne(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -42,6 +48,12 @@ open class TrivalPieceOne(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOr
  */
 class TrivalPieceTwo(xOrigin: Int, yOrigin: Int) : TrivalPieceOne(xOrigin, yOrigin) {
     override val printValue = "2 "
+    
+    override fun copy(): PuzzlePiece {
+        val newPiece = TrivalPieceTwo(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -56,4 +68,10 @@ class TrivalPieceTwo(xOrigin: Int, yOrigin: Int) : TrivalPieceOne(xOrigin, yOrig
  */
 class TrivalPieceThree(xOrigin: Int, yOrigin: Int) : TrivalPieceOne(xOrigin, yOrigin) {
     override val printValue = "3 "
+    
+    override fun copy(): PuzzlePiece {
+        val newPiece = TrivalPieceThree(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }

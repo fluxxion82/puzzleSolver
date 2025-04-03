@@ -19,7 +19,14 @@ class WikiPieceOne(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrigin) {
         Cell(originX, originY, true), // 0, 0
         Cell(originX + 1, originY, true) // 1, 0
     )
+
     override val printValue = "1 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = WikiPieceOne(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -38,7 +45,14 @@ class WikiPieceTwo(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrigin) {
         Cell(originX + 1, originY + 2, true), // 1, 2
         Cell(originX + 2, originY + 2, true) // 2, 2
     )
+
     override val printValue = "2 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = WikiPieceTwo(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -57,7 +71,14 @@ class WikiPieceThree(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrigin)
         Cell(originX + 1, originY + 2, true), // 0, 1
         Cell(originX + 2, originY + 2, true) // 2, 2
     )
+
     override val printValue = "3 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = WikiPieceThree(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -77,7 +98,14 @@ class WikiPieceFour(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrigin) 
         Cell(originX, originY + 3, true), // 0, 3
         Cell(originX + 1, originY + 3, true) // 1, 3
     )
+
     override val printValue = "4 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = WikiPieceFour(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -96,7 +124,14 @@ class WikiPieceFive(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrigin) 
         Cell(originX + 1, originY + 2, true), // 2, 1
         Cell(originX + 2, originY + 2, true) // 3, 2
     )
+
     override val printValue = "5 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = WikiPieceFive(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -115,7 +150,14 @@ class WikiPieceSix(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrigin) {
         Cell(originX + 2, originY + 1, true), // 2, 1
         Cell(originX, originY + 2, true) // 0, 2
     )
+
     override val printValue = "6 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = WikiPieceSix(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }
 
 /**
@@ -132,5 +174,12 @@ class WikiPieceSeven(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrigin)
         Cell(originX, originY + 1, true), // 0, 1
         Cell(originX, originY + 2, true) // 1, 1
     )
+
     override val printValue = "7 "
+
+    override fun copy(): PuzzlePiece {
+        val newPiece = WikiPieceSeven(0, 0)
+        copyTo(newPiece)
+        return newPiece
+    }
 }

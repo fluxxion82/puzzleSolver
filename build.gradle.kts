@@ -1,7 +1,5 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
-    kotlin("jvm") version "1.5.21"
+    kotlin("jvm") version "2.1.20"
     application
 }
 
@@ -18,10 +16,6 @@ dependencies {
 
 tasks.test {
     useJUnit()
-}
-
-tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "11"
 }
 
 application {
