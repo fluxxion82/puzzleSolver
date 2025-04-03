@@ -1,11 +1,12 @@
 package model
 
+import java.util.concurrent.ConcurrentHashMap
+
 abstract class PuzzlePiece(var originX: Int = 0, var originY: Int = 0) {
     abstract var cells: List<Cell>
     abstract val printValue: String
 
     private var originalCells: List<Cell> = listOf()
-    private var cachedOrientations: List<Orientation>? = null
 
     fun initOriginalCells() {
         if (originalCells.isEmpty()) {
@@ -14,35 +15,36 @@ abstract class PuzzlePiece(var originX: Int = 0, var originY: Int = 0) {
     }
 
     fun getUniqueOrientations(): List<Orientation> {
-        cachedOrientations?.let { return it }
+        val cacheKey = this.javaClass.name
+        
+        return orientationCache.computeIfAbsent(cacheKey) { _ ->
+            if (originalCells.isEmpty()) {
+                initOriginalCells()
+            }
 
-        if (originalCells.isEmpty()) {
-            initOriginalCells()
-        }
+            val uniqueOrientations = mutableSetOf<Int>()
+            val result = mutableListOf<Orientation>()
 
-        val uniqueOrientations = mutableSetOf<Int>()
-        val result = mutableListOf<Orientation>()
+            // Check all 8 possible orientations (4 rotations × 2 flips)
+            for (flip in 0..1) {
+                for (rotation in 0..3) {
+                    val tempPiece = this.copy() // Create a temporary copy to manipulate
+                    if (flip == 1) tempPiece.flipVertical()
+                    repeat(rotation) { tempPiece.rotate() }
 
-        // Check all 8 possible orientations (4 rotations × 2 flips)
-        for (flip in 0..1) {
-            for (rotation in 0..3) {
-                val tempPiece = this.copy() // Create a temporary copy to manipulate
-                if (flip == 1) tempPiece.flipVertical()
-                repeat(rotation) { tempPiece.rotate() }
+                    val normalized = tempPiece.cells
+                        .map { Pair(it.xCoord - tempPiece.originX, it.yCoord - tempPiece.originY) }
+                        .sortedWith(compareBy({ it.first }, { it.second }))
+                    val orientationHash = normalized.hashCode()
 
-                val normalized = tempPiece.cells
-                    .map { Pair(it.xCoord - tempPiece.originX, it.yCoord - tempPiece.originY) }
-                    .sortedWith(compareBy({ it.first }, { it.second }))
-                val orientationHash = normalized.hashCode()
-
-                if (uniqueOrientations.add(orientationHash)) {
-                    result.add(Orientation(rotation, flip == 1))
+                    if (uniqueOrientations.add(orientationHash)) {
+                        result.add(Orientation(rotation, flip == 1))
+                    }
                 }
             }
-        }
 
-        cachedOrientations = result
-        return result
+            result
+        }
     }
 
     fun applyOrientation(orientation: Orientation) {
@@ -86,17 +88,26 @@ abstract class PuzzlePiece(var originX: Int = 0, var originY: Int = 0) {
             RotateDegree.ONE_EIGHTY -> 2
             RotateDegree.TWO_SEVENTY -> 3
         }
-        repeat(rotations) {
-            val yBound = cells.maxOf { it.yCoord } + 1
-            cells.forEach { cell ->
-                val temp = cell.xCoord
-                cell.xCoord = yBound - 1 - cell.yCoord
-                cell.yCoord = temp
+        
+        if (rotations == 1) {
+            rotateSingle()
+        } else {
+            repeat(rotations) {
+                rotateSingle()
             }
-            val tempOrigin = originX
-            originX = yBound - 1 - originY
-            originY = tempOrigin
         }
+    }
+    
+    private fun rotateSingle() {
+        val yBound = cells.maxOf { it.yCoord } + 1
+        cells.forEach { cell ->
+            val temp = cell.xCoord
+            cell.xCoord = yBound - 1 - cell.yCoord
+            cell.yCoord = temp
+        }
+        val tempOrigin = originX
+        originX = yBound - 1 - originY
+        originY = tempOrigin
     }
 
     fun flipVertical() {
@@ -158,4 +169,8 @@ abstract class PuzzlePiece(var originX: Int = 0, var originY: Int = 0) {
     }
 
     data class Orientation(val rotations: Int, val flipped: Boolean)
+
+    companion object {
+        private val orientationCache = ConcurrentHashMap<String, List<Orientation>>()
+    }
 }

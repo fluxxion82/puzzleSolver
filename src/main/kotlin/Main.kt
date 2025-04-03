@@ -51,7 +51,7 @@ class TestPieceTwo(xOrigin: Int, yOrigin: Int) : PuzzlePiece(xOrigin, yOrigin) {
 fun main(args: Array<String>) {
     //testBoard()
     wikiPuzzle()
-    // pentominoes()
+    pentominoes()
 
     // squareFitPuzzle()
     trivialPuzzle()
